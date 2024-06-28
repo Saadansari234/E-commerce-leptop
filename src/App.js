@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import './app/styles/Main.scss'
+import './app/styles/resource/smallScreen.scss'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Layout from './app/Layout';
+import SigninPage from './app/pages/SigninPage';
+import SignupPage from './app/pages/SignupPage';
+import Adv from './app/components/Adv';
+import ProductsCartSlider from './app/components/ProductsCartSlider';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Adv />
+      <ProductsCartSlider/>
+    </Layout>
+    // < SigninPage/>
+    // <SigninPage />
+    // <Signin/>
   );
 }
 

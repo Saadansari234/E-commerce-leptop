@@ -1,0 +1,19 @@
+
+@mixin flex-center{
+    display: flex;
+    justify-content: center;
+}
+@mixin flex-between{
+    display: flex;
+    justify-content: space-between;
+}
+@mixin flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin object-cover{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
