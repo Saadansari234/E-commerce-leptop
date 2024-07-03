@@ -13,8 +13,8 @@ const SignupPage = () => {
             <div>
                 <InputField
                     type={"text"}
-                    placeholder={"Name"}
-                    arialabel={"Name"}
+                    placeholder={"Full Name"}
+                    arialabel={"Full Name"}
                     className={"input-Auth"}
                     class2={"mb-4"}
                 />
