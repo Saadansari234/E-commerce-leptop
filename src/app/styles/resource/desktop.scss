@@ -1,3 +1,35 @@
-@media only screen and (min-width: 1441px) {
-    
+@import "./mixins.scss";
+@import "./variables.scss";
+
+@media only screen and (min-width: 1025px) {
+
+    .history {
+
+        .history-container:hover {
+            background-color: $Secondary2;
+        }
+
+        .history-container:hover .history-icon {
+            background-color: #ffffffaf;
+
+        }
+
+        .history-container:hover .history-icon>div {
+            background-color: $primary;
+            color: $Button;
+        }
+
+        .history-container:hover>.title {
+            color: $primary;
+        }
+
+        .history-container:hover>.subtitle {
+            color: $primary;
+        }
+
+
+    }
 }
+
+
+@media only screen and (min-width: 1441px) {}
