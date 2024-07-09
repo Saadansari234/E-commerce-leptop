@@ -15,8 +15,8 @@ function App() {
     <Layout>
       {/* <HomePage/> */}
       {/* <Aboutus/> */}
-      {/* <Contactus/> */}
-      <Details/>
+      <Contactus/>
+      {/* <Details/> */}
     </Layout>
   );
 }

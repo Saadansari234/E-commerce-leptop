@@ -8,14 +8,12 @@ function Carousel4() {
     const baseUrl = "./assets/details"
     const settings = {
         customPaging: function (i) {
-            return 
+            return
             (
                 <a >
-                    {/* <div style={{width:"100%", height:"100%"}} > */}
-                    <img src={`${baseUrl}/pro-${i + 1}.jpg`}  />
-                    {/* </div> */}
+                    <img src={`${baseUrl}/pro-${i + 1}.jpg`} />
                 </a>
-                
+
             );
         },
         dots: true,
@@ -28,11 +26,11 @@ function Carousel4() {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-6" style={{height:"20vh"}}>
+                <div className="col-6" style={{ height: "20vh" }}>
                     <div className="slider-container">
                         <Slider {...settings}>
                             <div style={{ width: "100%", height: "100%" }}>
-                                <img src={baseUrl + "/pro-1.jpg"} className="w-100 h-100 object-fit-contain"  />
+                                <img src={baseUrl + "/pro-1.jpg"} className="w-100 h-100 object-fit-contain" />
                             </div>
                             <div style={{ width: "100%", height: "100%" }}>
                                 <img src={baseUrl + "/pro-2.jpg"} className="w-100 h-100 object-fit-contain" />
