@@ -1,27 +1,31 @@
 // Advertisements
 
-import ProductCarousel1 from "../ProductCarousel1";
+import Carousel1 from "../carousel/Carousel-1";
 
 function Adv() {
 
+    let data = [
+        "./assets/adv4.webp",
+        "./assets/adv2.jpg",
+        "./assets/adv3.png"
+    ]
+
     return (
-        <ProductCarousel1>
-            <div >
-                <div className="adv-container" >
-                    <img src="./assets/adv4.webp" alt="leptop" />
-                </div>
-            </div>
-            <div >
-                <div className="adv-container" >
-                    <img src="./assets/adv2.jpg" alt="leptop" />
-                </div>
-            </div>
-            <div >
-                <div className="adv-container" >
-                    <img src="./assets/adv3.png" alt="leptop" />
-                </div>
-            </div>
-        </ProductCarousel1>
+        <div className="container section-layout">
+            <Carousel1  >
+                {
+                    data.map((item, index) => {
+                        return (
+                            <div className="slick-container" key={index} >
+                                <img src={item} alt="leptop" />
+                            </div>
+                        )
+                    })
+                }
+
+
+            </Carousel1>
+        </div> 
     );
 }
 

@@ -5,7 +5,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import { IoCartOutline } from "react-icons/io5";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { CgProfile } from "react-icons/cg";
-import { CiMenuFries } from "react-icons/ci";
 
 const Menubar = () => {
   return (

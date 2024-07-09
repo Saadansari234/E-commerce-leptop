@@ -1,16 +1,16 @@
 // best selling products
 import Container from 'react-bootstrap/Container';
 import ProductTitle from '../../common/ProductTitle';
-import Countdown from '../../common/Countdown';
-import { ProductCarousel } from '../ProductCarousel';
+
+import { Carousel2 } from '../carousel/Carousel-2';
 import { CustomNextArrow, CustomPrevArrow } from '../../common/SliderButtons';
 import React, { useRef } from 'react';
 import CommonButton from '../../common/CommonButton';
 import ProductCard from '../../common/Card';
 import Media from "react-media"
 
-const ProductsCartSlider = () => {
-    const data = [undefined, 2, 3, 4, 5, 6, 7, 8,9,10,11,12]
+const ProductsCartSlider = ({data,title,subtitle,children}) => {
+     data = [undefined, 2, 3, 4, 5, 6, 7, 8,9,10,11,12]
 
     const sliderRef = useRef(null);
 
@@ -33,9 +33,9 @@ const ProductsCartSlider = () => {
     return (
         <div className='section-layout'>
             <Container >
-                <ProductTitle title={"Today's"} subtitle={"flash sales"}>
+                <ProductTitle title={title} subtitle={subtitle}>
                     <div >
-                        <Countdown />
+                        {children}
                     </div>
                     <div className=' d-flex justify-content-sm-start justify-content-lg-end  ' >
                         <div className='d-flex align-align-items-center gap-2'>
@@ -47,7 +47,7 @@ const ProductsCartSlider = () => {
             </Container>
             <div className='mt-3 mt-lg-5 carousel-container '>
 
-                <ProductCarousel sliderRef={sliderRef} >
+                <Carousel2 sliderRef={sliderRef} >
                     {
                         data.map((_, index) => {
                             return (
@@ -79,7 +79,7 @@ const ProductsCartSlider = () => {
                             )
                         })
                     }
-                </ProductCarousel>
+                </Carousel2>
                 <div className='d-flex justify-content-center mt-3 mt-lg-5'>
                     <CommonButton title="View All Products" className='slider-button' />
                 </div>

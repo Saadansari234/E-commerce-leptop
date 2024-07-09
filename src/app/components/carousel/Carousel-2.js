@@ -2,10 +2,11 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 // import ProductCard from '../common/Card';
 // import Media from "react-media"
 
-export const ProductCarousel = ({ sliderRef, children }) => {
+export const Carousel2 = ({ sliderRef, children }) => {
 
 
     const settings = {
@@ -39,18 +40,15 @@ export const ProductCarousel = ({ sliderRef, children }) => {
         ],
     };
     return (
-        <div className="product-slider-container">
-            <div className="slider-container">
-                <Slider ref={sliderRef} {...settings}>
-                    {
-                        children
-                    }
 
-                </Slider>
-            </div>
+        <div className="slider-container">
+            <Slider ref={sliderRef} {...settings}>
+                {
+                    children
+                }
+
+            </Slider>
         </div>
+
     )
 }
-
-
-

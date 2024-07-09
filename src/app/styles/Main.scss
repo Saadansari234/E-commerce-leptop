@@ -18,6 +18,7 @@
     flex-direction: column;
 }
 
+
 .section-layout {
     margin-bottom: 1rem !important;
     margin-top: 1rem !important;
@@ -26,6 +27,161 @@
     @media (min-width: 992px) {
         margin-top: 3rem !important;
         margin-bottom: 3rem !important;
+    }
+}
+
+//carousel connected on carousel1.js
+.carousel-container-1 {
+    .slick-dots {
+        bottom: 10px;
+
+    }
+
+    .slick-dots li button:before {
+        font-size: 12px;
+        color: gray;
+
+    }
+
+    .slick-dots li.slick-active button:before {
+        color: red;
+
+    }
+
+    .slick-container {
+        width: 100%;
+        height: 60vh;
+        position: relative;
+        overflow: hidden;
+
+    }
+
+    .slick-container>img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+
+    @media all and (max-width: 480px) {
+        .slick-container {
+            width: 100%;
+            height: 25vh;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+    }
+
+    @media all and (max-width: 1025px) {
+        .slick-container {
+            width: 100%;
+            height: 35vh;
+            position: relative;
+            overflow: hidden;
+            /* Ensures that the image does not overflow the container */
+        }
+
+    }
+}
+
+//connected in sliderbutton.js
+.carousel-container-2 {
+
+    .custom-arrow {
+        background-color: $secondary;
+        color: $thirtyperpx;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .custom-prev-arrow {
+        left: -50px;
+    }
+
+    .custom-next-arrow {
+        right: -50px;
+    }
+
+    .slide {
+        padding: 0 10px;
+    }
+}
+
+// connected on carousel3.js
+.carousel-container-3 {
+    .slick-dots {
+        bottom: 3%;
+    }
+
+    .slick-dots li button:before {
+        font-size: 12px;
+        color: gray;
+
+    }
+
+    .slick-dots li.slick-active button:before {
+        color: red;
+    }
+
+    .slick-container {
+        width: 100%;
+        height: 80vh;
+        position: relative;
+        overflow: hidden;
+
+    }
+
+    .owner-details {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 90%;
+    }
+
+    .owner-details>div {
+        width: 90%;
+        height: 100%;
+    }
+
+    .owner-image {
+        height: 75%;
+        position: relative;
+    }
+
+    .owner-image>img {
+        @include object-fit
+    }
+
+    .title {
+        font-size: 32px;
+        color: $Text2;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        color: $Text2;
+    }
+
+    .icons {
+        color: $Text2;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .owner-socials:hover {
+        color: blue;
+        cursor: pointer;
     }
 }
 
@@ -198,6 +354,11 @@
         .navItems {
             color: $Button;
             font-weight: 400;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
         .nav-right-bar {
@@ -376,24 +537,247 @@
         height: 100%;
         position: relative;
     }
-    .newproduct-image> img{
+
+    .product-content {
+        position: absolute;
+        background-color: #00000087;
+        opacity: 0.8;
+        width: 100%;
+        height: 100%;
+        color: #ffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding: 1rem 1rem;
+
+    }
+
+    .product-content>div:nth-child(1) {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .product-content>div:nth-child(2) {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .product-content>div:nth-child(3) {
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: underline;
+
+        &:hover {
+            color: #ffffff6d
+        }
+    }
+
+    .newproduct-image>img {
         @include object-fit;
     }
-    .product-container > div:nth-child(1){
+
+    .product-container {
+        cursor: pointer;
+    }
+
+    .product-container>div:nth-child(1) {
         height: 80vh;
     }
-    .product-container > div:nth-child(2){
-        padding-bottom: 0.5rem ;
+
+    .product-container>div:nth-child(2) {
+        padding-bottom: 0.5rem;
         height: 40vh;
     }
-    .product-container > div:nth-child(3){
-     padding-top: 0.5rem ;
-     margin-top: -40vh;
-     height: 40vh;
-    }
-    .product-container > div:nth-child(4){
-        padding-top: 0.5rem ;
+
+    .product-container>div:nth-child(3) {
+        padding-top: 0.5rem;
         margin-top: -40vh;
         height: 40vh;
     }
+
+    .product-container>div:nth-child(4) {
+        padding-top: 0.5rem;
+        margin-top: -40vh;
+        height: 40vh;
+    }
+}
+
+.services {
+    .services-icon {
+        width: 70px;
+        height: 70px;
+        background-color: $primary1;
+        border-radius: 50%;
+        @include flex-center-center;
+    }
+
+    .services-icon>div {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $Button;
+        color: white;
+        font-size: 24px;
+        @include flex-center-center;
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+        color: $Button;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        font-weight: 400;
+        color: $Button;
+    }
+}
+
+.story {
+    position: relative;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .story-img {
+        position: absolute;
+        width: 45%;
+        height: 100%;
+        right: 0;
+    }
+
+    .story-img>img {
+        @include object-fit
+    }
+
+    .content {
+        width: 50%;
+    }
+
+    .title {
+        font-size: 54px;
+        font-weight: 600;
+        color: $Text2
+    }
+
+    .paragraph {
+        color: $Text2
+    }
+}
+
+.history {
+
+    .history-container {
+        border: 1px solid $primary1;
+        padding: 1rem 1rem;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+    }
+
+    .history-icon {
+        width: 60px;
+        height: 60px;
+        background-color: $primary1;
+        border-radius: 50%;
+        @include flex-center-center;
+    }
+
+    .history-icon>div {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $Button;
+        color: white;
+        font-size: 20px;
+        @include flex-center-center;
+    }
+
+    .title {
+        font-size: 32px;
+        font-weight: bold;
+        color: $Button;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        font-weight: 400;
+        color: $Button;
+    }
+
+}
+
+.contactus {
+
+    .contact-icon {
+        width: 2rem;
+        height: 2rem;
+        background-color: $Button2;
+        border-radius: 50%;
+        color: $Text;
+        @include flex-center-center
+    }
+
+    .text-container {
+        // border: 1px solid;
+        padding: 1.5rem 0.8rem;
+    }
+
+    .text-content {
+
+        font-size: 14px;
+        color: $Button;
+        padding: 1.5rem 1.2rem;
+        -webkit-box-shadow: 1px 1px 11px 0px rgba(46, 45, 46, 0.36);
+        -moz-box-shadow: 1px 1px 11px 0px rgba(46, 45, 46, 0.36);
+        box-shadow: 1px 1px 5px 0px rgba(46, 45, 46, 0.36);
+
+    }
+
+    .info-sec{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .contact-content {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .link {
+        color: $Button;
+        text-decoration: none;
+    }
+
+    .input-sec {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .input-container {
+        width: 32%;
+    }
+
+    .input {
+        background-color: $secondary;
+        border-radius: 0px;
+        border: none;
+    }
+
+    .text-style{
+        height: 13rem;
+    }
+
+   .send-button{
+    background-color: $Button2;
+    border: none;
+    padding: 5px 25px;
+    &:hover{
+        background-color: $HoverButton;
+    }
+   }
 }
