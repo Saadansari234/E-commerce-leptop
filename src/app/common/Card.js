@@ -25,7 +25,7 @@ function ProductCard() {
   );
 }
 
-const Ratings = ({ Rate }) => {
+export const Ratings = ({ Rate }) => {
 
   return (
     <div>

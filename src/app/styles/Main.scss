@@ -185,6 +185,59 @@
     }
 }
 
+.carousel-container-4 {
+    .slider-container {
+        width: 100%;
+        // height: 80%;
+        margin: auto;
+        padding: 20px 0 80px 0;
+    }
+
+    .slick-container {
+        width: 100%;
+        height: 80vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .slick-container>img {
+        @include object-fit
+    }
+
+    .slick-dots {
+        position: absolute;
+        bottom: -50px;
+        display: flex !important;
+        justify-content: center;
+        padding: 0;
+        list-style: none;
+    }
+
+    .slick-dots li {
+        width: auto;
+        margin: 0 5px;
+    }
+
+    .slick-dots li button {
+        display: none;
+    }
+
+    .slick-dots li img {
+        width: 60px;
+        height: 40px;
+        object-fit: cover;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        transition: border 0.3s ease;
+    }
+
+    .slick-dots li.slick-active img {
+        border-color: #007bff;
+    }
+
+
+}
+
 // auth
 .auth-contain {
     display: flex;
@@ -736,7 +789,7 @@
 
     }
 
-    .info-sec{
+    .info-sec {
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -768,16 +821,121 @@
         border: none;
     }
 
-    .text-style{
+    .text-style {
         height: 13rem;
     }
 
-   .send-button{
-    background-color: $Button2;
-    border: none;
-    padding: 5px 25px;
-    &:hover{
-        background-color: $HoverButton;
+    .send-button {
+        background-color: $Button2;
+        border: none;
+        padding: 5px 25px;
+
+        &:hover {
+            background-color: $HoverButton;
+        }
     }
-   }
+}
+
+.Details {
+    .details-sec {
+        @include flex-center-center;
+        height: 100%;
+    }
+
+    .detail-container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: 600;
+        color: $Text2;
+    }
+
+    .price {
+        font-size: 24px;
+        font-weight: 400;
+        color: $Text2;
+    }
+
+    .desc {
+        font-size: 14px;
+        font-weight: 400;
+        color: $Text2;
+    }
+    .qty-contain {
+        border: 1px solid $primary1;
+        display: flex;
+        align-items: center;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+
+    .minus {
+        padding: 0.3rem 1rem;
+        font-size: 20px;
+        border-right: 1px solid $primary1;
+    }
+
+    .plus {
+        padding: 0.3rem 1rem;
+        font-size: 20px;
+        background-color: $Button2;
+        color: white;
+    }
+    .qty{
+        padding: 0.3rem 1.5rem;
+        font-size: 20px;
+    }
+
+    .order-button{
+        background-color: $Button2;
+        color: $Text;
+        padding: 0.3rem 1.5rem;
+        border: none;
+
+        &:hover{
+          background-color: $HoverButton;
+        }
+    }
+    .offers-contain{
+        border: 1px solid $primary1;
+        border-radius: 5px;
+    }
+    .offers-contain>div:nth-child(1){
+        border-bottom: 1px solid $primary1;
+    }
+    .offers{
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        gap: 1rem;
+
+    }
+    .offer-icon{
+       font-size: 28px;
+       font-weight: 600;
+       color: $Button;
+    }
+
+    title{
+        font-size: 16px;
+        font-weight: 500;
+        color: $Button;
+    }
+    
+    .subtitle{
+        font-size: 12px;
+        font-weight: 500;
+        color: $Button;
+    }
+    .subtitle>span{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
 }

@@ -9,8 +9,8 @@ import CommonButton from '../../common/CommonButton';
 import ProductCard from '../../common/Card';
 import Media from "react-media"
 
-const ProductsCartSlider = ({data,title,subtitle,children}) => {
-     data = [undefined, 2, 3, 4, 5, 6, 7, 8,9,10,11,12]
+const ProductsCartSlider = ({ data, title, subtitle, children }) => {
+    data = [undefined, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
     const sliderRef = useRef(null);
 
@@ -63,9 +63,9 @@ const ProductsCartSlider = ({data,title,subtitle,children}) => {
                                                 <div key={index}>
                                                     {index === 0 ? (
                                                         <div style={{ display: "flex", justifyContent: "center" }}>
-
+                                                            {/* Content for undefined index */}
                                                         </div>
-                                                    ) : (
+                                                    ) :  (
                                                         <div style={{ display: "flex", justifyContent: "center" }}>
                                                             <ProductCard />
                                                         </div>

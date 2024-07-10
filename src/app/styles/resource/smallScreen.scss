@@ -53,6 +53,14 @@
         .slick-container {
             width: 100%;
             height: 70vh;
+        }
+
+    }
+
+    .carousel-container-4 {
+        .slick-container {
+            width: 100%;
+            height: 50vh;
             position: relative;
             overflow: hidden;
         }
@@ -120,28 +128,30 @@
         }
     }
 
-    .contactus {
 
+
+    .contactus {
         .text-content {
             width: 100%;
         }
 
-    }
+        .input-container {
+            width: 100%;
+            margin-bottom: 10px;
+        }
 
-    
-.contactus {
-    .input-container {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+        .input-sec {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
-    .input-sec {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        }
 
     }
 
-    
-}
+    .Details {
+        .detail-container {
+            width: 100%;
+        }
+    }
 }
