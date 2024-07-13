@@ -8,15 +8,17 @@ import HomePage from './app/pages/HomePage';
 import Aboutus from './app/pages/Aboutus';
 import Contactus from './app/pages/Contactus';
 import Details from './app/pages/Details';
+import Cart from './app/pages/Cart';
 
 
 function App() {
   return (
     <Layout>
-      {/* <HomePage/> */}
+      <HomePage/>
       {/* <Aboutus/> */}
       {/* <Contactus/> */}
-      <Details/>
+      {/* <Details/> */}
+      {/* <Cart/> */}
     </Layout>
   );
 }

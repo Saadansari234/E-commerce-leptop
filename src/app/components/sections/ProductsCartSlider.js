@@ -1,7 +1,7 @@
 // best selling products
 import Container from 'react-bootstrap/Container';
 import ProductTitle from '../../common/ProductTitle';
-
+import { Ratings } from '../../common/Card';
 import { Carousel2 } from '../carousel/Carousel-2';
 import { CustomNextArrow, CustomPrevArrow } from '../../common/SliderButtons';
 import React, { useRef } from 'react';
@@ -31,7 +31,7 @@ const ProductsCartSlider = ({ data, title, subtitle, children }) => {
     };
 
     return (
-        <div className='section-layout'>
+        <div className='section-layout '>
             <Container >
                 <ProductTitle title={title} subtitle={subtitle}>
                     <div >
@@ -55,8 +55,19 @@ const ProductsCartSlider = ({ data, title, subtitle, children }) => {
                                     {
                                         matches => {
                                             return matches ? (
-                                                <div style={{ display: "flex", justifyContent: "center" }}>
-                                                    <ProductCard />
+                                                <div style={{ display: "flex", justifyContent: "center" }} key={index} >
+                                                    <ProductCard
+                                                        imageURL="./assets/lep-1.jpg"
+                                                        disc="-40"
+                                                        buttonTitle="Add To Cart"
+                                                        className="card-button"
+                                                        title="IPS LCD Gaming Monitor"
+                                                        price="960"
+                                                        allprice="1160"
+                                                    >
+                                                        <Ratings Rate={4} />
+                                                        <div>(45)</div>
+                                                    </ProductCard>
                                                 </div>
 
                                             ) : (
@@ -65,9 +76,20 @@ const ProductsCartSlider = ({ data, title, subtitle, children }) => {
                                                         <div style={{ display: "flex", justifyContent: "center" }}>
                                                             {/* Content for undefined index */}
                                                         </div>
-                                                    ) :  (
+                                                    ) : (
                                                         <div style={{ display: "flex", justifyContent: "center" }}>
-                                                            <ProductCard />
+                                                            <ProductCard
+                                                                imageURL="./assets/lep-1.jpg"
+                                                                // discount="-40%"
+                                                                buttonTitle="Add To Cart"
+                                                                className="card-button"
+                                                                title="IPS LCD Gaming Monitor"
+                                                                price="960"
+                                                            // cutprice="1160"
+                                                            >
+                                                                <Ratings Rate={4} />
+                                                                <div>(45)</div>
+                                                            </ProductCard>
                                                         </div>
                                                     )}
                                                 </div>

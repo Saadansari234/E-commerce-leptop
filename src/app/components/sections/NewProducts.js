@@ -1,9 +1,10 @@
 import React from 'react'
 import ProductTitle from '../../common/ProductTitle'
-
+import useMediaQuery from '../../utils/useMediaQuery';
 import Carousel1 from "../carousel/Carousel-1";
-import Media from "react-media"
+// import Media from "react-media"
 const NewProducts = () => {
+    const matches = useMediaQuery("(max-width:1025px)")
     const data = [
         {
             image: "./assets/new-1.jpg",
@@ -34,54 +35,53 @@ const NewProducts = () => {
         <div className='container newproducts'>
             <div className="section-layout">
                 <ProductTitle title={"Featured"} subtitle={"new arrival"} />
-                <Media query="(max-width:1025px)">
-                    {
-                        matches => {
-                            return matches ? (
-                                <Carousel1>
-                                    {
-                                        data.map((item, index) => {
-                                            return (
-                                                <div className='slick-container'>
-                                                    <div className='newproduct-image' key={index}>
-                                                        <img src={item.image} alt="item pic" />
-                                                        <div className='product-content'>
-                                                            <div>{item.title}</div>
-                                                            <div>{item.subtitle}</div>
-                                                            <div>{item.link}</div>
-                                                        </div>
-                                                    </div>
+
+                {
+                    matches ? (
+                        <Carousel1>
+                            {
+                                data.map((item, index) => {
+                                    return (
+                                        <div className='slick-container'>
+                                            <div className='newproduct-image' key={index}>
+                                                <img src={item.image} alt="item pic" />
+                                                <div className='product-content'>
+                                                    <div>{item.title}</div>
+                                                    <div>{item.subtitle}</div>
+                                                    <div>{item.link}</div>
                                                 </div>
-                                            )
-                                        })
-                                    }
-                                </Carousel1>
-                            ) : (
-                                <div className='row d-flex justify-content-end product-container'>
-                                    {
-                                        data.map((item, index) => {
-                                            return (
-                                                <div key={index} className={index < 2 ? "col-6" : "col-3"} >
-                                                    <div className='newproduct-image'>
-                                                        <img src={item.image} alt="item pic" />
-                                                        <div className='product-content'>
-                                                            <div>{item.title}</div>
-                                                            <div>{item.subtitle}</div>
-                                                            <div>{item.link}</div>
-                                                        </div>
-                                                    </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </Carousel1>
+                    ) : (
+                        <div className='row d-flex justify-content-end product-container'>
+                            {
+                                data.map((item, index) => {
+                                    return (
+                                        <div key={index} className={index < 2 ? "col-6" : "col-3"} >
+                                            <div className='newproduct-image'>
+                                                <img src={item.image} alt="item pic" />
+                                                <div className='product-content'>
+                                                    <div>{item.title}</div>
+                                                    <div>{item.subtitle}</div>
+                                                    <div>{item.link}</div>
                                                 </div>
-                                            )
-                                        })
-                                    }
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
 
-                                </div>
-                            )
-                        }
-                    }
+                        </div>
+                    )
+
+                }
 
 
-                </Media>
+
 
             </div>
         </div>

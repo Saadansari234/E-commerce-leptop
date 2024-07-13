@@ -3,22 +3,23 @@ import Card from 'react-bootstrap/Card';
 import { FaStar } from "react-icons/fa";
 import CommonButton from './CommonButton';
 
-function ProductCard() {
+function ProductCard({props}) {
   return (
     <Card  className='card' border='0'>
-      <Card.Img variant="top" src="./assets/lep-1.jpg" height={200}  />
+      <Card.Img variant="top" src={props.imageURL} height={200}  />
       <div className='card-hover-sec' >
-        <span>
-          -40%
-        </span>
-         <CommonButton title="Add To Cart" className="card-button"/>
+      
+         <span>{props.disc}</span> 
+      
+         <CommonButton title={props.buttonTitle} className={props.className}/> 
       </div>
       <Card.Body className='card-body' >
-        <Card.Title className='card-title'>IPS LCD Gaming Monitor</Card.Title>
-        <Card.Text className='card-text'>$960 <span >$1160</span></Card.Text>
+        <Card.Title className='card-title'>{props.title}</Card.Title>
+        <Card.Text className='card-text'>${props.price} <span>{props.allprice}</span></Card.Text>
         <div className='card-rating'>
-          <Ratings Rate={4} />
-          <div>(45)</div>
+          {
+           props.children
+          }
         </div>
       </Card.Body>
     </Card>
