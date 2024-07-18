@@ -8,6 +8,7 @@ import Shop from './app/pages/Shop';
 import Notfound from './app/pages/Notfound';
 import CartPage from './app/pages/CartPage';
 import SignupPage from './app/pages/SignupPage'
+import SigninPage from './app/pages/SigninPage';
 
 const AppRoutes = () => {
     return (
@@ -16,7 +17,7 @@ const AppRoutes = () => {
             <Route path='/' element={<HomePage />} />
             <Route path='/about' element={<Aboutus />} />
             <Route path='/contact' element={<Contactus />} />
-         
+            
         </Routes>
         
     )
