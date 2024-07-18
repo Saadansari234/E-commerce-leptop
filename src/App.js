@@ -18,12 +18,12 @@ function App() {
       <Layout>
         <AppRoutes />
       </Layout>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path='/signup' element={<SignupPage />} />
           <Route path='/signin' element={<SigninPage />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </>
   );
 }
