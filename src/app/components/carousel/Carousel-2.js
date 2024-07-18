@@ -17,27 +17,28 @@ export const Carousel2 = ({ sliderRef, children }) => {
         speed: 300,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1200, // xl
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1,
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 992, // lg
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                 },
             },
             {
-                breakpoint: 480,
+                breakpoint: 768, // md
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                 },
             },
         ],
+        
     };
     return (
 

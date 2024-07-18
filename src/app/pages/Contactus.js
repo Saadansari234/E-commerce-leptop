@@ -4,9 +4,15 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import CommonButton from "../common/CommonButton";
 import InputField from "../common/InputField"
+import HomeNavigator from '../common/HomeNavigator'
+
+
 const Contactus = () => {
     return (
         <section className='container section-layout contactus'>
+            <HomeNavigator>
+                Contact
+            </HomeNavigator>
             <div className='row'>
                 <div className='col-12 col-lg-4 text-container'>
                     <div className="text-content">
@@ -42,7 +48,7 @@ const Contactus = () => {
                                 <Form.Control as="textarea" aria-label="With textarea" placeholder="your message" className="input text-style" class2="input-container" />
                             </InputGroup>
                             <div className="d-flex justify-content-end">
-                                <CommonButton title="send message" className="send-button"/>
+                                <CommonButton title="send message" className="send-button" />
                             </div>
                         </div>
                     </div>

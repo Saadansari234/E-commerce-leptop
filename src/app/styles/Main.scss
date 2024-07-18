@@ -383,6 +383,12 @@
         gap: 5px;
         color: $Text;
     }
+
+    .footer-content>div:hover{
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.582);
+    }
+
 }
 
 // navbar
@@ -534,18 +540,42 @@
         margin: 5px 5px;
     }
 
-    .card-button {
+    .card-button2 {
+        background-color: $Text2;
+        color: $Text;
+        border-radius: 0;
+        border: 0;
+        width: 50%;
+        text-align: center;
+
+    }
+
+    .card-button2:hover {
+        background-color: $HoverButton2;
+
+    }
+
+
+
+    .card-button1 {
         background-color: $Text2;
         border-radius: 0;
         border: 0;
         width: 100%;
         text-align: center;
 
-        &:hover {
-            background-color: $HoverButton2;
-        }
-
     }
+
+    .card-button1:hover {
+        background-color: $Text;
+        color: $Text2;
+    }
+
+
+
+
+
+
 
     .card-body {
         padding-left: 0;
@@ -866,6 +896,7 @@
         font-weight: 400;
         color: $Text2;
     }
+
     .qty-contain {
         border: 1px solid $primary1;
         display: flex;
@@ -887,55 +918,147 @@
         background-color: $Button2;
         color: white;
     }
-    .qty{
+
+    .qty {
         padding: 0.3rem 1.5rem;
         font-size: 20px;
     }
 
-    .order-button{
+    .order-button {
         background-color: $Button2;
         color: $Text;
         padding: 0.3rem 1.5rem;
         border: none;
 
-        &:hover{
-          background-color: $HoverButton;
+        &:hover {
+            background-color: $HoverButton;
         }
     }
-    .offers-contain{
+
+    .offers-contain {
         border: 1px solid $primary1;
         border-radius: 5px;
     }
-    .offers-contain>div:nth-child(1){
+
+    .offers-contain>div:nth-child(1) {
         border-bottom: 1px solid $primary1;
     }
-    .offers{
+
+    .offers {
         display: flex;
         align-items: center;
         padding: 1rem;
         gap: 1rem;
 
     }
-    .offer-icon{
-       font-size: 28px;
-       font-weight: 600;
-       color: $Button;
+
+    .offer-icon {
+        font-size: 28px;
+        font-weight: 600;
+        color: $Button;
     }
 
-    title{
+    title {
         font-size: 16px;
         font-weight: 500;
         color: $Button;
     }
-    
-    .subtitle{
+
+    .subtitle {
         font-size: 12px;
         font-weight: 500;
         color: $Button;
     }
-    .subtitle>span{
+
+    .subtitle>span {
         text-decoration: underline;
         cursor: pointer;
     }
 
+}
+
+.notfound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+
+    .heading,
+    .subheading {
+        font-size: 110px;
+        font-weight: 600;
+        color: $Button;
+    }
+
+    .subheading {
+        font-size: 16px;
+
+    }
+
+    .button {
+        background-color: $Button2;
+        border: none;
+        color: $Text;
+        padding: 10px 25px;
+
+        &:hover {
+            background-color: $HoverButton;
+        }
+    }
+}
+
+.homenavigator {
+    .linkitem {
+        font-size: 14px;
+        color: $Text2;
+        font-weight: 600;
+    }
+
+    .linkitem>span:nth-child(1) {
+        &:hover {
+            color: $HoverButton3;
+            cursor: pointer;
+        }
+    }
+
+}
+
+.shop {
+    .shop-search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.searchbar {
+    .input-serach {
+        width: 50rem;
+        background-color: $secondary;
+        border: none;
+        font-size: 12px;
+        padding:10px 5px ;
+
+        &:focus{
+            box-shadow: none;
+            background-color:$secondary; ;
+        }
+    }
+
+    .input-serach> input::placeholder{
+        color: red;
+    }
+
+    .serach-sec {
+        background-color: $secondary;
+        border: none;
+
+    }
+
+    .search-icon {
+        color: $Text2;
+       
+    }
+
+   
 }

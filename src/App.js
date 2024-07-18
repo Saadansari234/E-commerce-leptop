@@ -4,23 +4,28 @@ import './app/styles/resource/Tabdevices.scss'
 import './app/styles/resource/desktop.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './app/Layout';
-import HomePage from './app/pages/HomePage';
-import Aboutus from './app/pages/Aboutus';
-import Contactus from './app/pages/Contactus';
-import Details from './app/pages/Details';
-import Cart from './app/pages/Cart';
+import AppRoutes from './Routes';
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import SigninPage from './app/pages/SigninPage'
+
+import SignupPage from './app/pages/SignupPage'
 
 function App() {
   return (
-    <Layout>
-      <HomePage/>
-      {/* <Aboutus/> */}
-      {/* <Contactus/> */}
-      {/* <Details/> */}
-      {/* <Cart/> */}
-    </Layout>
+    <>
+      <Layout>
+        <AppRoutes />
+      </Layout>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/signup' element={<SignupPage />} />
+          <Route path='/signin' element={<SigninPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
+
 
 export default App;

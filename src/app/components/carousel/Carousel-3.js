@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 // import "../styles/resource/Slick-custom.scss"
 
 
-function Carousel3({  children }) {
+function Carousel3({ children }) {
     const settings = {
         dots: true,
         infinite: true,
@@ -16,21 +16,21 @@ function Carousel3({  children }) {
         autoplaySpeed: 10000,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1200, // xl
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 992, // lg
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                 },
             },
             {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 480,
+                breakpoint: 768, // md
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -41,14 +41,14 @@ function Carousel3({  children }) {
     };
     return (
         <div className="carousel-container-3">
-           
-            {/* <div className="slider-container"> */}
-                <Slider {...settings}>
-                    {
-                        children
-                    }
 
-                </Slider>
+            {/* <div className="slider-container"> */}
+            <Slider {...settings}>
+                {
+                    children
+                }
+
+            </Slider>
             {/* </div> */}
         </div>
 

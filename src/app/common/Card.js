@@ -1,42 +1,29 @@
 
 import Card from 'react-bootstrap/Card';
-import { FaStar } from "react-icons/fa";
 import CommonButton from './CommonButton';
-
-function ProductCard({props}) {
+import Ratings from './Rtaing';
+ const ProductCard = () => {
   return (
-    <Card  className='card' border='0'>
-      <Card.Img variant="top" src={props.imageURL} height={200}  />
+    <Card className='card' border='0'>
+      <Card.Img variant="top" src="./assets/lep-1.jpg" height={200} />
       <div className='card-hover-sec' >
-      
-         <span>{props.disc}</span> 
-      
-         <CommonButton title={props.buttonTitle} className={props.className}/> 
+
+        <span>-40%</span>
+
+        <CommonButton title="Add To Cart" className="card-button1" />
       </div>
       <Card.Body className='card-body' >
-        <Card.Title className='card-title'>{props.title}</Card.Title>
-        <Card.Text className='card-text'>${props.price} <span>{props.allprice}</span></Card.Text>
+        <Card.Title className='card-title'>IPS LCD Gaming Monitor</Card.Title>
+        <Card.Text className='card-text'>$960 <span>$1160</span></Card.Text>
         <div className='card-rating'>
-          {
-           props.children
-          }
+          <Ratings Rate={4} />
+          <div>(45)</div>
         </div>
+        <CommonButton title="view" className="card-button2" />
       </Card.Body>
     </Card>
   );
 }
 
-export const Ratings = ({ Rate }) => {
+export default ProductCard
 
-  return (
-    <div>
-      <FaStar style={{ color: Rate > 0 ? "#FFAD33" : null }} />
-      <FaStar style={{ color: Rate > 1 ? "#FFAD33" : null }} />
-      <FaStar style={{ color: Rate > 2 ? "#FFAD33" : null }} />
-      <FaStar style={{ color: Rate > 3 ? "#FFAD33" : null }} />
-      <FaStar style={{ color: Rate > 4 ? "#FFAD33" : null }} />
-    </div>
-  )
-}
-
-export default ProductCard;

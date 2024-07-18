@@ -5,8 +5,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import { IoCartOutline } from "react-icons/io5";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { CgProfile } from "react-icons/cg";
+import { useNavigate } from 'react-router-dom';
 
 const Menubar = () => {
+  const navigate= useNavigate()
+
   return (
     <div className='nav-container'>
 
@@ -28,10 +31,11 @@ const Menubar = () => {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="gap-lg-3 gap-1 justify-content-center flex-grow-1 pe-5">
-                  <Nav.Link href="#home" className='navItems'>Home</Nav.Link>
-                  <Nav.Link href="#features" className='navItems'>About</Nav.Link>
-                  <Nav.Link href="#pricing" className='navItems'>Contact</Nav.Link>
-                  <Nav.Link href="#pricing" className='navItems'>Signup</Nav.Link>
+                  <Nav.Link   className='navItems' onClick={()=> navigate("/")} >Home</Nav.Link>
+                  <Nav.Link href="#features" onClick={()=> navigate("/about")} className='navItems'>About</Nav.Link>
+                  <Nav.Link href="#pricing" onClick={()=> navigate("/contact")} className='navItems'>Contact</Nav.Link>
+                  <Nav.Link href="#pricing" onClick={()=> navigate("/signup")} className='navItems'>Signup</Nav.Link>
+                 
                 </Nav>
 
                 <div className=' d-md-flex align-items-center gap-3'>

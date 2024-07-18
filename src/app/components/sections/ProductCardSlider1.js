@@ -5,12 +5,10 @@ import { Carousel2 } from '../carousel/Carousel-2';
 import { CustomNextArrow, CustomPrevArrow } from '../../common/SliderButtons';
 import React, { useRef } from 'react';
 import CommonButton from '../../common/CommonButton';
-import Media from "react-media"
-import useMediaQuery from '../../utils/useMediaQuery';
-
-const ProductsCartSlider = ({ data, title, subtitle, children, sliderCard }) => {
+import Ratings from '../../common/Rtaing';
+const ProductsCartSlider1 = ({ data, title, subtitle, children, sliderCard }) => {
     // data = [undefined, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-    const matches = useMediaQuery("(max-width:1025px)")
+
     const sliderRef = useRef(null);
 
     const handlePrevClick = () => {
@@ -44,42 +42,31 @@ const ProductsCartSlider = ({ data, title, subtitle, children, sliderCard }) => 
                     </div>
                 </ProductTitle>
             </Container>
-            <div className='mt-3 mt-lg-5 carousel-container '>
+            <div className='mt-3 mt-lg-5 carousel-container container '>
 
                 <Carousel2 sliderRef={sliderRef} >
                     {
-                        data.map((_, index) => {
+                        data.map((item, index) => {
                             return (
 
-                                matches ? (
-                                    <div style={{ display: "flex", justifyContent: "center" }} key={index} >
 
-                                        {
-                                            sliderCard
-                                        }
+                                <div style={{ display: "flex", justifyContent: "center" }} key={index} >
 
-                                    </div>
+                                    {
+                                    item.rate ? (
+                                        React.cloneElement(sliderCard, { children: <><Ratings Rate={item.rate} /><div>({item.count})</div> </> })
+                                    ):(
+                                        sliderCard
+                                    )
+                                     
+                                    }
 
-                                ) : (
-                                    <div key={index}>
-                                        {index === 0 ? (
-                                            <div style={{ display: "flex", justifyContent: "center" }}>
-                                                {/* Content for undefined index */}
-                                            </div>
-                                        ) : (
-                                            <div style={{ display: "flex", justifyContent: "center" }}>
-
-                                                {
-                                                    sliderCard
-                                                }
-                                            </div>
-                                        )}
-                                    </div>
-                                )
-
-
+                                </div>
 
                             )
+
+
+
                         })
                     }
                 </Carousel2>
@@ -87,11 +74,11 @@ const ProductsCartSlider = ({ data, title, subtitle, children, sliderCard }) => 
                     <CommonButton title="View All Products" className='slider-button' />
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }
 
 
 
-export default ProductsCartSlider
+export default ProductsCartSlider1

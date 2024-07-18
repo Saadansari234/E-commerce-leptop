@@ -3,7 +3,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { HiMiniArrowPathRoundedSquare } from "react-icons/hi2";
 import Carousel4 from '../carousel/Carousel-4'
 import CommonButton from "../../common/CommonButton"
-import { Ratings } from "../../common/Card"
+import Ratings from '../../common/Rtaing';
 const ProductDetails = () => {
     const [count, setCount] = useState(1)
     const handleCountMinus=()=>{
