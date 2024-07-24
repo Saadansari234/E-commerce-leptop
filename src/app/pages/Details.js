@@ -1,28 +1,73 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ProductDetails from '../components/sections/ProductDetails'
 import ProductsCartSlider1 from '../components/sections/ProductCardSlider1';
-import ProductCard2 from '../common/Card3';
-import Ratings from '../common/Rtaing';
 import HomeNavigator from '../common/HomeNavigator'
-
+import Layout from '../Layout';
+import { Recomenddata } from '../database/Products';
+import { useParams } from 'react-router-dom';
+import CustomModal from '../common/Modal';
+import { useState } from 'react';
+import Shops from '../database/Shops';
+import { allSideViews } from '../database/Products';
+import { addToOrder } from '../store/action';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Details = () => {
-  let suggetionsData = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,]
+  const [show, setShow] = useState(false);
+  const { id } = useParams()
+  const [product, setProduct] = useState(null)
+  const [imgData, setImgData] = useState([]);
+  const dispatch = useDispatch()
+  const orderdetails = useSelector(state => state.addtoOrder)
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    const foundProduct = Shops.find(item => item.id === id);
+    setProduct(foundProduct)
+    if (foundProduct) {
+      setImgData([foundProduct.imgURL, allSideViews.imgURL2, allSideViews.imgURL3, allSideViews.imgURL4]);
+      console.log(product)
+    } else {
+      console.log('No data found');
+    }
+  }, [id])
+
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const handleOrder = () => {
+    dispatch(addToOrder(product))
+  }
+
+  if (!product) return <>Loading...</>
   return (
     <div>
-      <div className='container section-layout'>
-        <HomeNavigator>
-          Details
-        </HomeNavigator>
-      </div>
-      <ProductDetails />
-      <div className="section-layout">
-        <ProductsCartSlider1
-          title={"related items"}
-          data={suggetionsData}
-          sliderCard={< ProductCard2 />}
-        />
-      </div>
+      <CustomModal show={show} onClick2={handleClose} />
+      <Layout>
+        <div>
+          <div className='container section-layout'>
+            <HomeNavigator>
+              Details
+            </HomeNavigator>
+          </div>
+
+          <ProductDetails
+            onClick={() => { handleShow(); handleOrder(); }}
+            imgData={imgData}
+            title={product.Name}
+            price={product.price}
+            rate={product.rate}
+          />
+
+          <div className="section-layout">
+            <ProductsCartSlider1
+              title={"related items"}
+              data={Recomenddata}
+
+            />
+          </div>
+        </div>
+      </Layout>
     </div>
   )
 }

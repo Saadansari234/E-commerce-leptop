@@ -7,28 +7,19 @@ import Services from '../components/sections/Services';
 import ProductCard2 from '../common/Card3';
 import ProductCard from "../common/Card"
 import ProductsCartSlider1 from '../components/sections/ProductCardSlider1';
-
+import Layout from '../Layout';
+import Flashsales from '../database/Flashsales';
+import { Productsdata } from '../database/Products';
 const HomePage = () => {
-  let flashSalesData = [undefined, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  let ourProductsData = [
-    { rate: 4, count: 45 },
-    { rate: 4, count: 45 },
-    { rate: 4, count: 45 },
-    { rate: 4, count: 45 },
-    { rate: 4, count: 45 },
-    { rate: 4, count: 45 },
-    { rate: 4, count: 45 },
-    { rate: 4, count: 45 },
-  ]
+  
   return (
-    <>
+    <Layout>
       <Adv />
       <ProductsCartSlider
         title={"todays's"}
         subtitle={"flash sales"}
-        data={flashSalesData}
-        children={<Countdown />}
-        sliderCard={<ProductCard />}
+        data={Flashsales}
+        children={<Countdown id={"countdown"} />}
       />
 
       <NewProducts />
@@ -36,11 +27,11 @@ const HomePage = () => {
       <ProductsCartSlider1
         title={"featured"}
         subtitle={"our products"}
-        data={ourProductsData}
-        sliderCard={< ProductCard2 />}
+        data={Productsdata}
+        // sliderCard={< ProductCard2 />}
       />
       <Services />
-    </>
+    </Layout>
   );
 }
 

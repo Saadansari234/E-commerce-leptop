@@ -12,25 +12,11 @@ import { useSelector } from 'react-redux';
 
 function App() {
 
-  const isLoggedin = useSelector(state => state.LoginInfo)
-  console.log(isLoggedin)
+  // const isLoggedin = useSelector(state => state.LoginInfo)
+  // console.log(isLoggedin)
   return (
     <>
-      {
-        isLoggedin ? (
-          <Layout>
-            <AppRoutes />
-          </Layout>
-        ) : (
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<SigninPage />} />
-              <Route path='/signup' element={<SignupPage />} />
-            </Routes>
-          </BrowserRouter>
-
-        )
-      }
+      <AppRoutes />
     </>
   );
 }

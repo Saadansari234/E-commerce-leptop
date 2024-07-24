@@ -13,6 +13,7 @@ const InputField = (props) => {
                 className={props.className}
                 type={props.type}
                 onChange={props.onChange}
+                required
             />
         </InputGroup>
     )

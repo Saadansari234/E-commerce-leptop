@@ -6,9 +6,14 @@ import { CustomNextArrow, CustomPrevArrow } from '../../common/SliderButtons';
 import React, { useRef } from 'react';
 import CommonButton from '../../common/CommonButton';
 import Ratings from '../../common/Rtaing';
-const ProductsCartSlider1 = ({ data, title, subtitle, children, sliderCard }) => {
+import { useNavigate } from 'react-router-dom';
+import ProductCard2 from '../../common/Card3';
+import { addToCart } from '../../store/action';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+const ProductsCartSlider1 = ({ data, title, subtitle, children,  }) => {
     // data = [undefined, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-
+    const navigate = useNavigate()
     const sliderRef = useRef(null);
 
     const handlePrevClick = () => {
@@ -24,6 +29,18 @@ const ProductsCartSlider1 = ({ data, title, subtitle, children, sliderCard }) =>
                 //    console.log(currentSlide); 
                 //     console.log(totalSlides );
             }
+        }
+    };
+
+    const dispatch = (useDispatch())
+    const cartData = useSelector(state => state.addtocart)
+    const handleAdd = (item) => {
+        const isItemInCart = cartData.find(cartItem => cartItem.id === item.id);
+
+        if (!isItemInCart) {
+            dispatch(addToCart(item));
+        } else {
+            console.log('Item is already in the cart');
         }
     };
 
@@ -50,15 +67,22 @@ const ProductsCartSlider1 = ({ data, title, subtitle, children, sliderCard }) =>
                             return (
 
 
-                                <div style={{ display: "flex", justifyContent: "center" }} key={index} >
+                                <div key={index} >
 
                                     {
-                                    item.rate ? (
-                                        React.cloneElement(sliderCard, { children: <><Ratings Rate={item.rate} /><div>({item.count})</div> </> })
-                                    ):(
-                                        sliderCard
-                                    )
-                                     
+                                        item.rate ? (
+                                            // React.cloneElement(sliderCard, { children: <><Ratings Rate={item.rate} /><div>({item.count})</div> </> })
+                                            < ProductCard2
+                                                imgURL={item.imgURL}
+                                                onClick1={() => handleAdd(item)}
+                                                onclick2={()=>navigate(`/view/${item.id}`)} 
+                                            >
+                                                <Ratings Rate={item.rate} /><div>({item.count})</div>
+                                            </ProductCard2>
+                                        ) : (
+                                            < ProductCard2 imgURL={item.imgURL}  onClick1={() => handleAdd(item)} onclick2={()=>navigate(`/view/${item.id}`)} />
+                                        )
+
                                     }
 
                                 </div>
@@ -71,7 +95,7 @@ const ProductsCartSlider1 = ({ data, title, subtitle, children, sliderCard }) =>
                     }
                 </Carousel2>
                 <div className='d-flex justify-content-center mt-3 mt-lg-5'>
-                    <CommonButton title="View All Products" className='slider-button' />
+                    <CommonButton title="View All Products" onClick={() => navigate("/shop")} className='slider-button' />
                 </div>
             </div>
         </div >

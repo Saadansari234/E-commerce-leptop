@@ -4,16 +4,15 @@ import Menubar from './components/Navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import SignupPage from './pages/SignupPage'
 import SigninPage from './pages/SigninPage'
+import ScrollOnTop from './utils/ScrollTop'
 
 const Layout = (props) => {
+    ScrollOnTop()
     return (
         <div className='App'>
-            <BrowserRouter>
-                <Menubar />
-                {props.children}
-                <Footer />
-              
-            </BrowserRouter>
+            <Menubar />
+            {props.children}
+            <Footer />
         </div>
     )
 }

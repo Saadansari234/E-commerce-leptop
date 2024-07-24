@@ -2,33 +2,37 @@ import React from 'react'
 import ProductTitle from '../../common/ProductTitle'
 import useMediaQuery from '../../utils/useMediaQuery';
 import Carousel1 from "../carousel/Carousel-1";
+import { useNavigate } from 'react-router-dom';
+
 // import Media from "react-media"
 const NewProducts = () => {
     const matches = useMediaQuery("(max-width:1025px)")
+    const navigate=useNavigate()
+
     const data = [
         {
             image: "./assets/new-1.jpg",
             title: "PlayStation 5",
             subtitle: "Black and White version of the PS5 coming out on sale.",
-            link: "Shop Now",
+          
         },
         {
             image: "./assets/new-2.avif",
             title: "PlayStation 5",
             subtitle: "Black and White version of the PS5 coming out on sale.",
-            link: "Shop Now",
+          
         },
         {
             image: "./assets/new-2.avif",
             title: "PlayStation 5",
             subtitle: "Black and White version of the PS5 coming out on sale.",
-            link: "Shop Now",
+          
         },
         {
             image: "./assets/new-2.avif",
             title: "PlayStation 5",
             subtitle: "Black and White version of the PS5 coming out on sale.",
-            link: "Shop Now",
+          
         },
     ]
     return (
@@ -42,13 +46,13 @@ const NewProducts = () => {
                             {
                                 data.map((item, index) => {
                                     return (
-                                        <div className='slick-container'>
+                                        <div className='slick-container' key={index}>
                                             <div className='newproduct-image' key={index}>
                                                 <img src={item.image} alt="item pic" />
                                                 <div className='product-content'>
                                                     <div>{item.title}</div>
                                                     <div>{item.subtitle}</div>
-                                                    <div>{item.link}</div>
+                                                    <div onClick={()=>navigate("/shop") }>Shop now</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -67,7 +71,7 @@ const NewProducts = () => {
                                                 <div className='product-content'>
                                                     <div>{item.title}</div>
                                                     <div>{item.subtitle}</div>
-                                                    <div>{item.link}</div>
+                                                    <div onClick={()=>navigate("/shop") }>shop now</div>
                                                 </div>
                                             </div>
                                         </div>

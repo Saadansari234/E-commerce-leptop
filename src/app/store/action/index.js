@@ -17,3 +17,24 @@ export const logOut= () =>{
         type:Action.LOGOUT,    
     }
 }
+
+export const addToCart= (data) =>{
+    return{
+        type:Action.ADDTOCART,  
+        payload:data  
+    }
+}
+
+export const removeFromCart= (data) =>{
+    return{
+        type:Action.REMOVECART,  
+        payload:data  
+    }
+}
+
+export const addToOrder= (data) =>{
+    return{
+        type:Action.ADDORDER,  
+        payload:data  
+    }
+}

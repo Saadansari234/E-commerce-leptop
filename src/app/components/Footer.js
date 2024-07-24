@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Naviagtion from '../utils/navigatation'
 
 const Footer = () => {
     return (
@@ -7,20 +7,21 @@ const Footer = () => {
             <div className='container footer-content-sec'>
                 <div className='row'>
                     <div className='col-4 footer-title'>
-                        <h5>Support</h5>
+                        <h5>connect</h5>
                         <div className='footer-content'>
-                            <div>exclusive@gmail.com</div>
-                            <div>+88015-88888-9999</div>
+                            <div><a href='mailto:saadansari3212@gmail.com' target="blank" >saadansari3212@gmail.com</a></div>
+                            <div><a href='https://www.linkedin.com/in/saadansari234/' target="blank" >Saadansari234@linkedin</a></div>
+                            <div><a href='https://github.com/Saadansari234' target="blank" >Saadansari234@github</a></div>
                         </div>
                     </div>
                     <div className='col-4 footer-title'>
                         <h5>Account</h5>
                         <div className='footer-content'>
-                            <div>My Account</div>
-                            <div>Login / Register</div>
-                            <div>Cart</div>
-                            <div>Wishlist</div>
-                            <div>Shop</div>
+                            <div>My Profile</div>
+                            <div><Naviagtion path={"/login"}>Login / Register</Naviagtion></div>
+                            <div><Naviagtion path={"/about"}>about</Naviagtion></div>
+                            <div><Naviagtion path={"/contact"}>contact</Naviagtion></div>
+                            <div><Naviagtion path={"/shop"}>shop</Naviagtion></div>
                         </div>
                     </div>
                     <div className='col-4 footer-title'>
@@ -35,7 +36,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='copyright'>
-                <p>Copyright Rimel 2022. All right reserved</p>
+                <p>saad ansari 2024. All right reserved</p>
             </div>
         </footer>
     )

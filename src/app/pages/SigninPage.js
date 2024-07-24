@@ -9,29 +9,35 @@ import { logIn } from '../store/action'
 import { useNavigate } from 'react-router-dom'
 
 const SigninPage = () => {
-   const [email, setEmail]=useState("")
-   const [password, setPassword]=useState("")
-   const [autherror, setAuthError]= useState(false)
-   const [error, setError]= useState(false)
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [autherror, setAuthError] = useState(false)
+    const [error, setError] = useState(false)
     const data = useSelector(state => state.signupInfo)
     const dispatch = useDispatch()
-    const navigat=useNavigate()
+    const navigat = useNavigate()
 
 
     const handleClick = () => {
-      if (email.trim() !== "" || password.trim !== "" ) {
-        data.map(item=>{
-            if (item.Email === email && item.Password === password) {
+        const trueEmail = data.find(item => item.Email === email)
+        const truePassword = data.find(item => item.Password === password)
+        if (email.trim() !== "" && password.trim !== "") {
+            setError(false)
+
+            if (trueEmail && truePassword) {
+                const user = data.find(item => item.Email === email && item.Password === password);
+                localStorage.setItem("username" , user.Name)
+                setAuthError(false)
                 dispatch(logIn())
                 navigat("/")
-            }else{
+            } else {
                 setAuthError(true)
             }
-        })
-      }else{
-        setError(true)
-      }
-              
+
+        } else {
+            setError(true)
+        }
+
     }
     // console.log(data)
     // console.log(autherror)
@@ -56,7 +62,7 @@ const SigninPage = () => {
                     arialabel={"Email"}
                     className={"input-Auth"}
                     class2={"mb-4"}
-                    onChange={(e)=> setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 <InputField
                     type={"password"}
@@ -64,9 +70,14 @@ const SigninPage = () => {
                     arialabel={"Password"}
                     className={"input-Auth"}
                     class2={"mb-4"}
-                    onChange={(e)=> setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
-
+                {
+                    autherror ? (<div style={{ color: "red", fontSize: "12px" }}>invalid email or password</div>) : null
+                }
+                {
+                    error ? (<div style={{ color: "red", fontSize: "12px" }}>please fill all details</div>) : null
+                }
                 <div className='signin-button-grp'>
                     <CommonButton
                         title={"Log in"}

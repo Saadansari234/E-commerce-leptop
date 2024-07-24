@@ -3,7 +3,10 @@
 const Action={
     SIGNUP:"SIGNUP",
    LOGIN:"LOGIN",
-   LOGOUT:"LOGOUT"
+   LOGOUT:"LOGOUT",
+   ADDTOCART:"ADDTOCART",
+   REMOVECART:"REMOVECART",
+   ADDORDER:"ADDORDER"
 }
 
 export default Action

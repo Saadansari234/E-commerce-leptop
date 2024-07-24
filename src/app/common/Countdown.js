@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 
-const Countdown = () => {
+const Countdown = ({id}) => {
 
     const calculateTimeLeft = () => {
         const saleEndDate = new Date("Jul 30, 2024 18:00:00").getTime();
@@ -41,7 +41,7 @@ const Countdown = () => {
 
     return (
 
-        <div id="countdown" className='d-flex gap-3 align-items-center'>
+        <div id={id} className='d-flex gap-3 align-items-center'>
 
             <div className='timing-container '>
 
