@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {  useEffect, } from 'react'
 import ProductDetails from '../components/sections/ProductDetails'
 import ProductsCartSlider1 from '../components/sections/ProductCardSlider1';
 import HomeNavigator from '../common/HomeNavigator'
@@ -10,7 +10,7 @@ import { useState } from 'react';
 import Shops from '../database/Shops';
 import { allSideViews } from '../database/Products';
 import { addToOrder } from '../store/action';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Details = () => {
   const [show, setShow] = useState(false);
@@ -18,9 +18,9 @@ const Details = () => {
   const [product, setProduct] = useState(null)
   const [imgData, setImgData] = useState([]);
   const dispatch = useDispatch()
-  const orderdetails = useSelector(state => state.addtoOrder)
+  
+
   useEffect(() => {
-    window.scrollTo(0, 0)
     const foundProduct = Shops.find(item => item.id === id);
     setProduct(foundProduct)
     if (foundProduct) {
@@ -30,7 +30,6 @@ const Details = () => {
       console.log('No data found');
     }
   }, [id])
-
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

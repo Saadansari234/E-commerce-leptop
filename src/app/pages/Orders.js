@@ -51,7 +51,7 @@ const Orders = () => {
                             <div className='product-details'>
                               <div className='d-flex align-items-center gap-4'>
                                 <div className='product-pic'>
-                                  <img src='./assets/new-1.jpg' alt='product-pic' />
+                                  <img src={item.imgURL} alt='product-pic' />
                                 </div>
                                 <div className='product-info'>
                                   <div>{item.Name}</div>
