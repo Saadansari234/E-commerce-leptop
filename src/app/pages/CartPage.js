@@ -2,13 +2,11 @@ import React from 'react'
 import HomeNavigator from '../common/HomeNavigator'
 import Layout from '../Layout'
 import ProductTitle from '../common/ProductTitle'
-import ProductCard2 from '../common/Card3'
-import Ratings from '../common/Rtaing'
-import Shops from '../database/Shops'
 import { useDispatch, useSelector } from 'react-redux'
 import ProductCard3 from '../common/Card4'
 import { removeFromCart } from '../store/action'
 import { useNavigate } from 'react-router-dom'
+import NoEntry from '../utils/NoEntry'
 const CartPage = () => {
   const data = useSelector(state => state.addtocart)
   const navigate=useNavigate()
@@ -30,7 +28,7 @@ const CartPage = () => {
         <ProductTitle title="cart products" />
         {
           data.length === 0 ? (
-            <div className='noentry-sign'>No Entry</div>
+           <NoEntry message={"No product added"}/>
           ) : (
             <div className='row mt-5 '>
               {

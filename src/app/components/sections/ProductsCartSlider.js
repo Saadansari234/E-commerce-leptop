@@ -12,7 +12,7 @@ import { addToCart } from '../../store/action';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 const ProductsCartSlider = ({ data, title, subtitle, children, }) => {
-    // data = [undefined, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    const isloggedin= useSelector(state=>state.LoginInfo)
     const navigate = useNavigate()
     const matches = useMediaQuery("(max-width:1025px)")
     const sliderRef = useRef(null);
@@ -31,7 +31,7 @@ const ProductsCartSlider = ({ data, title, subtitle, children, }) => {
             }
         }
     };
-    
+
     const dispatch = (useDispatch())
     const cartData = useSelector(state => state.addtocart)
     const handleAdd = (item) => {
@@ -43,7 +43,12 @@ const ProductsCartSlider = ({ data, title, subtitle, children, }) => {
             console.log('Item is already in the cart');
         }
     };
-//    console.log(data);
+
+    const handleLogin = () => {
+        alert("please login first")
+        navigate("/login")
+    }
+
     return (
         <div className='section-layout '>
             <Container >
@@ -64,9 +69,9 @@ const ProductsCartSlider = ({ data, title, subtitle, children, }) => {
                 <Carousel2 sliderRef={sliderRef} >
                     {
                         data.map((item, index) => {
-                            const {id}= item
+                            const { id } = item
                             return (
-                        
+
                                 matches ? (
                                     <div key={index} >
 
@@ -75,7 +80,7 @@ const ProductsCartSlider = ({ data, title, subtitle, children, }) => {
                                             imgURL={item.imgURL}
                                             rate={item.rate}
                                             onClick1={() => handleAdd(item)}
-                                            onClick2={()=>navigate(`/view/${id}`)}
+                                            onClick2={() => navigate(`/view/${id}`)}
                                         />
 
                                     </div>
@@ -93,7 +98,7 @@ const ProductsCartSlider = ({ data, title, subtitle, children, }) => {
                                                     imgURL={item.imgURL}
                                                     rate={item.rate}
                                                     onClick1={() => handleAdd(item)}
-                                                    onClick2={()=>navigate(`/view/${id}`)}
+                                                    onClick2={() => navigate(`/view/${id}`)}
                                                 />
                                             </div>
                                         )}
@@ -107,7 +112,15 @@ const ProductsCartSlider = ({ data, title, subtitle, children, }) => {
                     }
                 </Carousel2>
                 <div className='d-flex justify-content-center mt-3 mt-lg-5'>
-                    <CommonButton title="View All Products" onClick={() => navigate("/shop")} className='slider-button' />
+                    {
+                        isloggedin ? (
+
+                            <CommonButton title="View All Products" onClick={() => navigate("/shop")} className='slider-button' />
+                        ) : (
+                            <CommonButton title="View All Products" onClick={handleLogin} className='slider-button' />
+
+                        )
+                    }
                 </div>
             </div>
         </div>

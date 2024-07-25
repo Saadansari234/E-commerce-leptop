@@ -29,7 +29,7 @@ const Details = () => {
     } else {
       console.log('No data found');
     }
-  }, [id])
+  }, [id, product])
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

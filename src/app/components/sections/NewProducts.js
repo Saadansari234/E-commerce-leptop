@@ -3,12 +3,16 @@ import ProductTitle from '../../common/ProductTitle'
 import useMediaQuery from '../../utils/useMediaQuery';
 import Carousel1 from "../carousel/Carousel-1";
 import { useNavigate } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 // import Media from "react-media"
 const NewProducts = () => {
     const matches = useMediaQuery("(max-width:1025px)")
     const navigate=useNavigate()
-
+    const isloggedin= useSelector(state=>state.LoginInfo)
+    const handleLogin=()=>{
+        alert("please login first")
+        navigate("/login")
+    }
     const data = [
         {
             image: "./assets/new-1.jpg",
@@ -52,7 +56,14 @@ const NewProducts = () => {
                                                 <div className='product-content'>
                                                     <div>{item.title}</div>
                                                     <div>{item.subtitle}</div>
-                                                    <div onClick={()=>navigate("/shop") }>Shop now</div>
+                                                    {
+                                                        isloggedin?(
+                                                            <div onClick={()=>navigate("/shop") }>Shop now</div>
+                                                        ):(
+                                                            <div onClick={handleLogin}>Shop now</div>
+                                                        )
+                                                    }
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -71,7 +82,13 @@ const NewProducts = () => {
                                                 <div className='product-content'>
                                                     <div>{item.title}</div>
                                                     <div>{item.subtitle}</div>
-                                                    <div onClick={()=>navigate("/shop") }>shop now</div>
+                                                    {
+                                                        isloggedin?(
+                                                            <div onClick={()=>navigate("/shop") }>Shop now</div>
+                                                        ):(
+                                                            <div onClick={handleLogin}>Shop now</div>
+                                                        )
+                                                    }
                                                 </div>
                                             </div>
                                         </div>

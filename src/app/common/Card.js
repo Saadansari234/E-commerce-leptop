@@ -2,7 +2,17 @@
 import Card from 'react-bootstrap/Card';
 import CommonButton from './CommonButton';
 import Ratings from './Rtaing';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 const ProductCard = ({rate,count,imgURL,onClick1,onClick2}) => {
+  const isLoggedin=useSelector(state=>state.LoginInfo)
+  const navigate= useNavigate()
+
+  const handleLogin=()=>{
+    alert("please login first")
+    navigate("/login")
+  }
   return (
     <div className='d-flex justify-content-center'>
       <Card className='card' border='0'>
@@ -12,8 +22,14 @@ const ProductCard = ({rate,count,imgURL,onClick1,onClick2}) => {
         <div className='card-hover-sec' >
 
           <span>-40%</span>
-
-          <CommonButton title="Add To Cart" onClick={onClick1} className="card-button1" />
+         {
+           isLoggedin?(
+            <CommonButton title="Add To Cart" onClick={onClick1} className="card-button1" />
+           ):(
+            <CommonButton title="Add To Cart" onClick={handleLogin} className="card-button1" />
+           )
+         }
+        
         </div>
         <Card.Body className='card-body' >
           <Card.Title className='card-title'>IPS LCD Gaming Monitor</Card.Title>
@@ -22,7 +38,14 @@ const ProductCard = ({rate,count,imgURL,onClick1,onClick2}) => {
             <Ratings Rate={rate} />
             <div>({count})</div>
           </div>
-          <CommonButton title="view" onClick={onClick2} className="card-button2" />
+          {
+            isLoggedin? (
+              <CommonButton title="view" onClick={onClick2} className="card-button2" />
+            ):(
+              <CommonButton title="view" onClick={handleLogin} className="card-button2" />
+            )
+          }
+         
         </Card.Body>
       </Card>
     </div>

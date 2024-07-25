@@ -11,8 +11,10 @@ import ProductCard2 from '../../common/Card3';
 import { addToCart } from '../../store/action';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+
 const ProductsCartSlider1 = ({ data, title, subtitle, children,  }) => {
     // data = [undefined, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    const isloggedin= useSelector(state=>state.LoginInfo)
     const navigate = useNavigate()
     const sliderRef = useRef(null);
 
@@ -43,6 +45,10 @@ const ProductsCartSlider1 = ({ data, title, subtitle, children,  }) => {
             console.log('Item is already in the cart');
         }
     };
+    const handleLogin=()=>{
+        alert("please login first")
+        navigate("/login")
+    }
 
     return (
         <div className='section-layout '>
@@ -95,7 +101,15 @@ const ProductsCartSlider1 = ({ data, title, subtitle, children,  }) => {
                     }
                 </Carousel2>
                 <div className='d-flex justify-content-center mt-3 mt-lg-5'>
-                    <CommonButton title="View All Products" onClick={() => navigate("/shop")} className='slider-button' />
+                    {
+                        isloggedin?(
+
+                            <CommonButton title="View All Products" onClick={() => navigate("/shop")} className='slider-button' />
+                        ):(
+                            <CommonButton title="View All Products" onClick={handleLogin} className='slider-button' />
+
+                        )
+                    }
                 </div>
             </div>
         </div >

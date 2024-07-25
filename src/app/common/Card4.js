@@ -2,7 +2,6 @@
 import Card from 'react-bootstrap/Card';
 import CommonButton from './CommonButton';
 import { RxCross2 } from "react-icons/rx";
-
 // import Ratings from './Rtaing';
 
 const ProductCard3 = ({ children, imgURL, onClick1, onclick2 }) => {

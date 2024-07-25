@@ -7,6 +7,7 @@ import { FiPackage } from "react-icons/fi";
 import Ratings2 from '../common/Ratings2'
 import { Scrollbar } from 'react-scrollbars-custom';
 import { useSelector } from 'react-redux'
+import NoEntry from '../utils/NoEntry'
 
 const Orders = () => {
   const accountname = localStorage.getItem("username")
@@ -34,9 +35,11 @@ const Orders = () => {
               <Searchbar />
             </div>
             <div className='products-container'>
-              <Scrollbar style={{ width: "100%", height: "150vh" }}>
+              <Scrollbar style={{ width: "100%", maxHeight: "150vh" , minHeight:"50vh"}}>
                 {
-                  data.length ? (
+                  data.length === 0 ? (
+                    <NoEntry message={"No Order Added"}/>
+                  ) : (
                     data.map((item, index) => {
                       return (
                         <section className='products-sec' key={index}>
@@ -72,8 +75,7 @@ const Orders = () => {
                         </section>
                       )
                     })
-
-                  ) : (null)
+                  )
                 }
 
 
